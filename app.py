@@ -23,6 +23,7 @@ def fillregform():
         for i in clus.find():
             if i['email'] == email:
                 return render_template('regsuccess.html',result="Email already registered!")
+                break
             else:
                 clus.insert_one(
                     {
@@ -31,6 +32,7 @@ def fillregform():
                         'password': password
                     }
                 )
+                break
         return render_template('regsuccess.html',result="Registered Successfully!")
 
 @app.route("/login",methods = ['GET','POST'])
